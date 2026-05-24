@@ -1,0 +1,45 @@
+Network Log Parser & Anomaly Detector
+
+A Python tool that automates parsing of network infrastructure logs, detects anomalies and errors, and generates a triage summary report.
+
+What it does
+
+Parses structured log files (timestamp, level, IP, message)
+Flags ERROR events and keyword-based anomalies (timeouts, unauthorized access, DNS failures, high latency)
+Reports event breakdown by severity level and top active IPs
+Reduces manual log triage time by filtering noise automatically
+
+How to run
+python log_parser.py
+
+Skills demonstrated
+Python scripting, log analysis, network anomaly detection, regex parsing, incident response automation
+Sample output
+==================================================
+  NETWORK LOG ANALYSIS REPORT
+==================================================
+
+Total entries parsed : 8
+Anomalies detected   : 4
+Triage reduction     : ~50% noise filtered
+
+Event breakdown:
+
+  ERROR    3
+  INFO     4
+  WARN     1
+
+Top IPs by activity:
+
+  192.168.1.10       4 events
+  10.0.0.5           2 events
+  10.0.0.8           1 events
+  192.168.1.15       1 events
+  192.168.1.22       1 events
+
+Anomalies flagged:
+
+  [ERROR] 2025-05-01 08:15:01 | 10.0.0.5 | Connection timeout - port 443
+  [ERROR] 2025-05-01 08:19:12 | 10.0.0.8 | Unauthorized access attempt - port 22
+  [WARN]  2025-05-01 08:21:00 | 192.168.1.15 | CPU threshold exceeded: 91%
+  [ERROR] 2025-05-01 08:22:44 | 10.0.0.5 | DNS resolution failed
